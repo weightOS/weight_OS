@@ -8,6 +8,14 @@ namespace WeightKernel
         protected override void BeforeRun()
         {
             Console.Clear();
+            try
+            {
+                VFS.Initialize();
+            }
+            catch (Exception ex)
+            {
+                Panic.Trigger("VFS initialization failed: " + ex.Message);
+            }
             Console.WriteLine("welcome to weightOS!");
             Console.WriteLine("Type 'help' for commands.");
         }
